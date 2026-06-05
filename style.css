@@ -1,0 +1,728 @@
+/* ==========================================
+   1. RESET & CONFIGURATIONS DE BASE
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   2. ÉCRAN DE CHARGEMENT (LOADER 30s)
+   ========================================== */
+#loader {
+  position: fixed;
+  inset: 0;
+  background-color: #000000;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+.loader-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.loader-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, #000000 90%);
+}
+
+.loader-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.loader-names {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.2rem;
+  color: #bc964a;
+  margin-bottom: 25px;
+  text-transform: capitalize;
+}
+
+.loader-img-container {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 25px auto;
+  border-radius: 50%;
+  border: 3px solid #bc964a;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.loader-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.verse-container {
+  margin-bottom: 30px;
+  min-height: 80px;
+}
+
+.loader-text {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.loader-reference {
+  font-size: 0.9rem;
+  color: #bc964a;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.progress-container {
+  width: 80%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 auto;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loading-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #bc964a;
+  transition: width 0.1s linear;
+}
+
+.hidden {
+  display: none !important;
+  opacity: 0;
+}
+
+/* ==========================================
+   3. BARRE DE NAVIGATION RESPONSIVE
+   ========================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.nav-logo {
+  font-family: 'Alex Brush', cursive;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #bc964a;
+}
+
+.hamburger-icon {
+  display: none;
+  font-size: 1.5rem;
+  color: #333333;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.hamburger-icon:hover {
+  color: #bc964a;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #555555;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #bc964a;
+}
+
+/* ==========================================
+   4. ACCUEIL (HERO) AVEC DIAPORAMA AUTOMATIQUE
+   ========================================== */
+#accueil {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #111111;
+  overflow: hidden;
+}
+
+.slideshow-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 0.5;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  padding: 0 20px;
+}
+
+.main-title {
+  font-family: 'Alex Brush', cursive;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+  text-transform: capitalize;
+}
+
+.couple-subtitle {
+  font-size: 1.1rem;
+  color: #bc964a;
+  font-weight: 500;
+  margin-top: 8px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.couple-subtitle span {
+  text-transform: uppercase;
+}
+
+.date {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  font-weight: 300;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   5. STYLES DES SECTIONS REPRISES
+   ========================================== */
+.section-container {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bg-light {
+  background-color: #faf8f5;
+  max-width: 100%;
+}
+
+.bg-light .section-container {
+  padding: 80px 20px;
+}
+
+.section-container h2 {
+  font-family: 'Alex Brush', cursive;
+  font-size: 3rem;
+  color: #bc964a;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* ==========================================
+   6. SECTION À PROPOS
+   ========================================== */
+.apropos-content {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.apropos-text {
+  flex: 1;
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #555555;
+}
+
+.apropos-text h3 {
+  font-size: 1.5rem;
+  color: #222222;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.apropos-text p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+blockquote {
+  border-left: 3px solid #bc964a;
+  padding-left: 20px;
+  margin: 25px 0;
+  font-style: italic;
+  background-color: #faf8f5;
+  padding: 15px 20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.apropos-img {
+  flex: 1;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.apropos-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================
+   7. SECTION PROGRAMME
+   ========================================== */
+.programme-grid {
+  display: grid;
+  grid-template-cols: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.programme-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+  border: 1px solid #f1f1f1;
+  transition: transform 0.3s ease;
+}
+
+.programme-card:hover {
+  transform: translateY(-5px);
+}
+
+.programme-icon {
+  font-size: 2rem;
+  color: #bc964a;
+  margin-bottom: 15px;
+}
+
+.programme-time {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222222;
+  margin-bottom: 10px;
+}
+
+.programme-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #bc964a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.programme-card p {
+  font-size: 0.9rem;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   8. LOCALISATION & CARTE
+   ========================================== */
+.localisation-content {
+  text-align: center;
+}
+
+.localisation-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.localisation-info p {
+  color: #666666;
+  margin-bottom: 30px;
+}
+
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   9. FORMULAIRE RSVP
+   ========================================== */
+.section-subtitle {
+  text-align: center;
+  color: #777777;
+  margin-top: -30px;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+.reservation-container {
+  display: flex;
+  gap: 50px;
+  margin-top: 40px;
+  align-items: flex-start;
+}
+
+.reservation-form {
+  flex: 1.5;
+  background-color: #faf8f5;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  color: #444444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e1e1e1;
+  background-color: #ffffff;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #333333;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #bc964a;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #bc964a;
+  color: #ffffff;
+  border: none;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #a37f37;
+}
+
+.contact-details {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid #f1f1f1;
+}
+
+.contact-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.contact-details p {
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+.contact-details ul {
+  list-style: none;
+}
+
+.contact-details ul li {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.contact-details ul li strong {
+  color: #bc964a;
+}
+
+/* ==========================================
+   10. FOOTER
+   ========================================== */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid #f1f1f1;
+  font-size: 0.9rem;
+  color: #888888;
+}
+
+/* ==========================================
+   11. MEDIA QUERIES RESPONSIVE (ACCUEIL)
+   ========================================== */
+@media (max-width: 1024px) {
+  .apropos-content {
+    flex-direction: column;
+  }
+  .programme-grid {
+    grid-template-cols: repeat(2, 1fr);
+  }
+  .reservation-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .reservation-form, .contact-details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger-icon {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 20px;
+    gap: 15px;
+    width: 220px;
+    z-index: 1001;
+    border: 1px solid #f1f5f9;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .nav-links li a {
+    color: #333333 !important;
+    display: block;
+    font-size: 0.95rem;
+    padding: 5px 0;
+  }
+  .main-title {
+    font-size: 2.8rem !important;
+  }
+  .couple-subtitle {
+    font-size: 0.9rem;
+  }
+  .programme-grid {
+    grid-template-cols: 1fr;
+  }
+  .section-container h2 {
+    font-size: 2.5rem;
+  }
+  .loader-names {
+    font-size: 1.8rem;
+  }
+}
+
+/* ==========================================
+   12. STYLES SPÉCIFIQUES POUR LA GALERIE (Nouveau)
+   ========================================== */
+.galerie-body {
+  background-color: #0c0c0c !important;
+  color: #ffffff !important;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.galerie-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.btn-back {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.btn-back:hover {
+  color: #bc964a;
+}
+
+.galerie-title {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.2rem;
+  color: #bc964a;
+}
+
+.slider-viewport {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-item {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.slide-item img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+.arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s, color 0.3s;
+  z-index: 5;
+}
+
+.arrow-btn:hover {
+  background: #bc964a;
+  color: #000000;
+}
+
+.arrow-left { left: 25px; }
+.arrow-right { right: 25px; }
+
+.counter-badge {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Media Queries spécifiques Galerie Mobile */
+@media (max-width: 768px) {
+  .slide-item { padding: 15px; }
+  .arrow-btn { width: 45px; height: 45px; font-size: 1rem; }
+  .arrow-left { left: 10px; }
+  .arrow-right { right: 10px; }
+  .galerie-title { font-size: 1.7rem; }
+}

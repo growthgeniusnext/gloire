@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCHUNIN KOUABENAN ÉMILE & OUATTARA KOROTOUM</title>
+  
+  <!-- LOGO DE LA BARRE DE RECHERCHE & ONGLET -->
+  <link rel="icon" type="image/jpeg" href="images/photo 001.jpeg">
+  <link rel="apple-touch-icon" href="images/photo 001.jpeg">
+  
+  <!-- Polices élégantes depuis Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Icônes pour le programme et le menu -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Lien vers le fichier CSS externe -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ÉCRAN DE CHARGEMENT (30 SECONDES AVEC VERSETS) -->
+  <div id="loader">
+    <img src="images/photo 1.png" alt="Fond Couple" class="loader-bg-img">
+    <div class="loader-overlay"></div>
+    
+    <div class="loader-content">
+      <h1 class="loader-names">Tchunin Kouabenan Émile et Ouattara Korotoum</h1>
+      <div class="loader-img-container">
+        <img src="images/bis.jpeg" alt="Couple" class="loader-avatar">
+      </div>
+      <div class="verse-container">
+        <p class="loader-text" id="bible-verse">"L'amour est patient, l'amour est plein de bonté..."</p>
+        <p class="loader-reference" id="bible-reference">1 Corinthiens 13:4</p>
+      </div>
+      <div class="progress-container">
+        <div class="loading-bar" id="loading-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE PRINCIPALE -->
+  <div id="main-content" class="hidden">
+    
+    <!-- Barre de Navigation Défilante & Responsive -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">E & K</div>
+        
+        <!-- Menu Hamburger visible uniquement sur mobile/tablette à droite -->
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#accueil" onclick="closeMenuMobile()">Accueil</a></li>
+          <li><a href="#apropos" onclick="closeMenuMobile()">À Propos</a></li>
+          <li><a href="#programme" onclick="closeMenuMobile()">Programme</a></li>
+          <li><a href="galerie.html">Galerie Photos 🎵</a></li>
+          <li><a href="#localisation" onclick="closeMenuMobile()">Localisation</a></li>
+          <li><a href="#reservation" onclick="closeMenuMobile()">Réservation</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- 1. Accueil (Avec Diaporama automatique en arrière-plan) -->
+    <header id="accueil">
+      <div class="slideshow-container">
+        <div class="hero-slide active" style="background-image: url('images/photo 7 bis.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/photo 1.png');"></div>
+        <div class="hero-slide" style="background-image: url('images/photo 12 bis.jpeg');"></div>
+      </div>
+      
+      <div class="overlay">
+        <h1 class="main-title">Emile & Korotoum</h1>
+        <p class="couple-subtitle">
+          <span>L</span>eur s'intile d'amour
+        </p>
+        <p class="date">Samedi 18 Juillet 2026 – Gagnoa</p>
+      </div>
+    </header>
+
+    <!-- 2. Section À Propos -->
+    <section id="apropos" class="section-container">
+      <h2>Notre Histoire</h2>
+      <div class="apropos-content">
+        <div class="apropos-text">
+          <h3>Un Amour Éprouvé et Couronné par la Foi</h3>
+          <p>Bienvenue sur notre espace d’amour ! C’est ici que commence le décompte vers notre plus beau jour. Nous sommes impatients de célébrer notre union à vos côtés le 18 juillet à Gagnoa. Mais avant de prononcer ce "Oui" sacré, nous voulons vous ouvrir nos cœurs sur le chemin qui nous a menés jusqu’ici. Un chemin sculpté par le Créateur, fait de victoires, mais aussi de vallées secrètes.</p>
+
+          <blockquote>
+            <p><strong>Ésaïe 54:10</strong><br>
+            <em>"Quand les montagnes s'éloigneraient, quand les collines chancelleraient, mon amour ne s'éloignera point de toi, et mon alliance de paix ne chancellera point, dit l'Éternel, qui a compassion de toi."</em></p>
+          </blockquote>
+
+          <p>Au tout début, notre rencontre a été une évidence douce. Deux vies qui se croisent et qui décident de marcher au même rythme.</p>
+
+          <h4 style="color: #bc964a; margin: 20px 0 10px 0; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Les moments de doute : Quand la foi chancelle</h4>
+          <p>Pourtant, construire un amour durable exige de passer par le feu de l'épreuve. Il y a eu des saisons de doutes profonds. Des moments où le silence s'est installé, où la peur de l'engagement, les incertitudes de la vie et nos propres faiblesses humaines nous ont fait vaciller. Nous avons connu cette tempête intérieure où l'on se demande si les fondations tiendront. Mais c’est précisément au plus fort du doute, quand nos propres forces ont échoué, que nous avons compris qu'un couple ne tient pas par la magie des sentiments, mais par la solidité d'une promesse partagée sous le regard de Dieu.</p>
+
+          <blockquote>
+            <p><strong>Proverbes 17:17</strong><br>
+            <em>"L’ami aime en tout temps, et dans le malheur il se montre un frère."</em></p>
+          </blockquote>
+
+          <h4 style="color: #bc964a; margin: 20px 0 10px 0; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Le Pardon et la Confiance restaurée : Reconstruire sur le roc</h4>
+          <p>L'amour véritable n'est pas l'absence de blessures, c'est l'art de savoir se pardonner. Nous nous sommes heurtés à nos imperfections. Nous avons dû apprendre à briser l'orgueil, à déposer les armes du ressentiment et à choisir le pardon réciproque comme une respiration quotidienne. Pardonner, ce fut accepter de nettoyer le passé pour offrir à l'autre un avenir neuf. C’est par ce pardon purifiant que notre confiance est devenue inébranlable : nous ne craignons plus l'avenir, car nous savons que nous savons nous relever.</p>
+
+          <blockquote>
+            <p><strong>Michée 7:18</strong><br>
+            <em>"Il ne garde pas sa colère à toujours, car il prend plaisir à la miséricorde."</em></p>
+          </blockquote>
+
+          <h4 style="color: #bc964a; margin: 20px 0 10px 0; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">La Solidité en Dieu : Un amour qui ne fléchit plus</h4>
+          <p>Aujourd’hui, le doute a été vaincu par une confiance absolue. Confiance en la personne que nous avons en face de nous, forgée par le respect et la vérité. Confiance suprême en Dieu, le gardien de notre alliance. Nous arrivons à l'autel le cœur guéri, fortifié et profondément reconnaissant.</p> 
+
+          <p>Nous avons hâte de vous retrouver à la Mairie de Gagnoa, à la Paroisse Sainte Marie de Babré, puis à l'Espace Neverland pour sceller cette grâce. Nous avançons vers cette nouvelle vie portés par cette parole puissante :</p>
+
+          <blockquote>
+            <p><strong>Lamentations 3:22-23</strong><br>
+            <em>"Les bontés de l'Éternel ne sont pas épuisées, ses compassions ne sont pas à leur terme ; elles se renouveillement chaque matin. Oh ! que ta fidélité est grande !"</em></p>
+          </blockquote>
+        </div>
+        <div class="apropos-img">
+          <img src="images/photo 12 bis.jpeg" alt="Notre Histoire">
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Section Programme -->
+    <section id="programme" class="section-container bg-light">
+      <div class="section-container">
+        <h2>Le Programme du Jour</h2>
+        <div class="programme-grid">
+          <div class="programme-card">
+            <div class="programme-icon"><i class="fa-solid fa-gavel"></i></div>
+            <div class="programme-time">09h00</div>
+            <h3>Mariage Civil</h3>
+            <p><strong>Lieu :</strong> Mairie de Gagnoa</p>
+            <p>C'est devant la loi que nous scellerons officiellement notre engagement. Soyez ponctuels !</p>
+          </div>
+          <div class="programme-card">
+            <div class="programme-icon"><i class="fa-solid fa-church"></i></div>
+            <div class="programme-time">11h00</div>
+            <h3>Bénédiction Nuptiale</h3>
+            <p><strong>Lieu :</strong> Paroisse Sainte Marie de Babré</p>
+            <p>Nous nous réunirons à l'église pour consacrer notre union devant Dieu.</p>
+          </div>
+          <div class="programme-card">
+            <div class="programme-icon"><i class="fa-solid fa-glass-cheers"></i></div>
+            <div class="programme-time">13h00</div>
+            <h3>Réception & Festivités</h3>
+            <p><strong>Lieu :</strong> Espace Neverland</p>
+            <p><em>(Route Ony-Babré)</em></p>
+            <p>Place à la fête ! Rejoignez-nous pour partager un délicieux repas et danser.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Section Localisation -->
+    <section id="localisation" class="section-container">
+      <h2>Venir à l'Événement</h2>
+      <div class="localisation-content">
+        <div class="localisation-info">
+          <h3>Gagnoa, Côte d'Ivoire</h3>
+          <p>Retrouvez ci-dessous la localisation de la ville de Gagnoa pour organiser vos trajets.</p>
+        </div>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15904.472856417757!2d-5.9525206!3d6.1319757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfce38e12a0f8bf3%3A0xc3f8476839b23b49!2sGagnoa%2C%20C%C3%B4te%20d'Ivoire!5e0!3m2!1sfr!2sfr!4v1650000000000!5m2!1sfr!2sfr" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Section Contact & Réservation -->
+    <section id="reservation" class="section-container bg-light">
+      <div class="section-container">
+        <h2>Réservations & Contacts</h2>
+        <p class="section-subtitle">Merci de confirmer votre présence avant le 1er Juin 2026</p>
+        
+        <div class="reservation-container">
+          <form class="reservation-form" id="rsvpForm">
+            <div class="form-group">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" name="Nom" placeholder="Ex: Marc Koffi" required>
+            </div>
+            <div class="form-group">
+              <label for="guests">Nombre d'accompagnants</label>
+              <select id="guests" name="Accompagnants">
+                <option value="0">Je viens seul(e)</option>
+                <option value="1">1 personne</option>
+                <option value="2">2 personnes</option>
+                <option value="3">3 personnes ou plus</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="presence">Serez-vous parmi nous ?</label>
+              <select id="presence" name="Presence" required>
+                <option value="oui">Oui, avec joie !</option>
+                <option value="non">Non, malheureusement</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Un petit mot pour les mariés ? (Optionnel)</label>
+              <textarea id="message" name="Message" rows="4" placeholder="Votre chaleureux message..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">Confirmer ma présence</button>
+          </form>
+
+          <div class="contact-details">
+            <h3>Besoin d'aide ?</h3>
+            <p>Contactez-nous directement :</p>
+            <ul>
+              <li><strong>Téléphone :</strong> +225 07 08 07 11 94 </li>
+              <li><strong>Email :</strong> kouabenanemile@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Fait avec ❤️ pour Emile & Korotoum — © 2026</p>
+    </footer>
+
+  </div>
+
+  <!-- Lien vers le fichier JavaScript externe -->
+  <script src="script.js"></script>
+</body>
+</html>
