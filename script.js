@@ -85,8 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (slides.length > 0) {
     setInterval(changeSlides, 4000); // Changement automatique toutes les 4 secondes
   }
-
-
+  
   // ==========================================
   // 3. ENVOI DU FORMULAIRE RSVP
   // ==========================================
@@ -118,7 +117,89 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+/* ==========================================================
+   LOGIQUE DE RENTRÉE RSVP ET TÉLÉCHARGEMENT D'INVITATION IMAGE
+   ========================================================== */
 
+document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+  e.preventDefault(); 
+
+  const presenceSelect = document.getElementById('presence').value;
+  const successBox = document.getElementById('downloadSuccessBox');
+
+  if (presenceSelect === 'oui') {
+    // Déclenche la création et le téléchargement de la carte image personnalisée
+    generateAndDownloadInvitation();
+    
+    // Affiche le conteneur de validation
+    successBox.style.display = 'block';
+    successBox.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    successBox.style.display = 'none';
+    alert("Votre réponse a été prise en compte. Merci d'avoir pris le temps de nous informer.");
+  }
+});
+
+// Écouteur pour le bouton de ré-échantillonnage manuel
+document.getElementById('btnDownloadAgain').addEventListener('click', function() {
+  generateAndDownloadInvitation();
+});
+
+function generateAndDownloadInvitation() {
+  const nameInput = document.getElementById('name').value;
+  const guestsSelect = document.getElementById('guests');
+  const numAccompagnants = parseInt(guestsSelect.value);
+  const totalPersonnes = numAccompagnants + 1;
+
+  const canvas = document.getElementById('invitationCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Initialisation de la maquette d'image de fond
+  const baseImage = new Image();
+  // IMPORTANT : Assurez-vous d'avoir enregistré l'image du modèle sous ce nom dans votre dossier :
+  baseImage.src = 'images/invitation-fond.png'; 
+
+  baseImage.onload = function() {
+    // 1. Dessine la carte d'invitation vierge reçue
+    ctx.drawImage(baseImage, 0, 0, canvas.width, canvas.height);
+
+    // 2. Configuration du Nom de l'invité
+    ctx.fillStyle = '#6d562c'; // Couleur assortie au texte d'origine
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 36px "Montserrat", sans-serif';
+    
+    // Position horizontale centrée (500) et verticale ajustée (365)
+    ctx.fillText(nameInput.toUpperCase(), 500, 365);
+
+    // 3. Configuration du nombre de personnes invitées
+    ctx.fillStyle = '#bc964a';
+    ctx.font = 'italic 500 24px "Montserrat", sans-serif';
+    
+    let texteInvitation = "";
+    if(totalPersonnes === 1) {
+      texteInvitation = "Invitation valable pour : 1 Personne seule";
+    } else {
+      texteInvitation = "Invitation valable pour : " + totalPersonnes + " Personnes";
+    }
+    
+    ctx.fillText(texteInvitation, 500, 410);
+
+    // 4. Génération du fichier PNG final et téléchargement automatique
+    const imageURL = canvas.toDataURL('image/png');
+    const downloadLink = document.createElement('a');
+    
+    downloadLink.href = imageURL;
+    downloadLink.download = 'Invitation_Mariage_Emile_et_Korotoum_' + nameInput.replace(/ /g, "_") + '.png';
+    
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
+
+  baseImage.onerror = function() {
+    alert("Erreur de chargement de la maquette. Veuillez vérifier que l'image existe dans 'images/invitation-fond.png'.");
+  };
+}
 // ==========================================
 // 4. ACTION DU MENU HAMBURGER (ACCESSIBLE PARTOUT)
 // ==========================================
