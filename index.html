@@ -5,24 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TCHUNIN KOUABENAN ÉMILE & OUATTARA KOROTOUM</title>
   
-  <!-- LOGO DE LA BARRE DE RECHERCHE & ONGLET -->
   <link rel="icon" type="image/jpeg" href="images/photo 001.jpeg">
   <link rel="apple-touch-icon" href="images/photo 001.jpeg">
   
-  <!-- Polices élégantes depuis Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Icônes pour le programme et le menu -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Lien vers le fichier CSS externe -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ÉCRAN DE CHARGEMENT (30 SECONDES AVEC VERSETS) -->
   <div id="loader">
     <img src="images/photo 1.png" alt="Fond Couple" class="loader-bg-img">
     <div class="loader-overlay"></div>
@@ -42,15 +37,12 @@
     </div>
   </div>
 
-  <!-- PAGE PRINCIPALE -->
   <div id="main-content" class="hidden">
     
-    <!-- Barre de Navigation Défilante & Responsive -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">E & K</div>
         
-        <!-- Menu Hamburger visible uniquement sur mobile/tablette à droite -->
         <div class="hamburger-icon" onclick="toggleMenu()">
           <i class="fa-solid fa-bars"></i>
         </div>
@@ -66,7 +58,6 @@
       </div>
     </nav>
 
-    <!-- 1. Accueil (Avec Diaporama automatique en arrière-plan) -->
     <header id="accueil">
       <div class="slideshow-container">
         <div class="hero-slide active" style="background-image: url('images/photo 7 bis.jpg');"></div>
@@ -83,7 +74,6 @@
       </div>
     </header>
 
-    <!-- 2. Section À Propos -->
     <section id="apropos" class="section-container">
       <h2>Notre Histoire</h2>
       <div class="apropos-content">
@@ -130,7 +120,6 @@
       </div>
     </section>
 
-    <!-- 3. Section Programme -->
     <section id="programme" class="section-container bg-light">
       <div class="section-container">
         <h2>Le Programme du Jour</h2>
@@ -161,7 +150,6 @@
       </div>
     </section>
 
-    <!-- 4. Section Localisation -->
     <section id="localisation" class="section-container">
       <h2>Venir à l'Événement</h2>
       <div class="localisation-content">
@@ -175,7 +163,6 @@
       </div>
     </section>
 
-    <!-- 5. Section Contact & Réservation -->
     <section id="reservation" class="section-container bg-light">
       <div class="section-container">
         <h2>Réservations & Contacts</h2>
@@ -219,6 +206,18 @@
             </ul>
           </div>
         </div>
+
+        <div id="downloadSuccessBox" class="invitation-success-box">
+          <i class="fa-solid fa-circle-check" style="color: #bc964a; font-size: 2.5rem; margin-bottom: 15px;"></i>
+          <h3>Présence confirmée avec succès !</h3>
+          <p>Votre carte d'invitation officielle personnalisée en image a été générée et téléchargée automatiquement.</p>
+          <button type="button" class="btn-download-again" id="btnDownloadAgain">
+            <i class="fa-solid fa-download"></i> Ré-échantillonner / Télécharger l'image
+          </button>
+        </div>
+
+        <canvas id="invitationCanvas" width="1000" height="1000"></canvas>
+
       </div>
     </section>
 
@@ -228,7 +227,6 @@
 
   </div>
 
-  <!-- Lien vers le fichier JavaScript externe -->
   <script src="script.js"></script>
 </body>
 </html>
