@@ -524,7 +524,61 @@ blockquote {
 }
 
 /* ==========================================
-   10. FOOTER
+   10. ZONE INVITATION AUTOMATIQUE (Nouveau)
+   ========================================== */
+.invitation-success-box {
+  display: none;
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border: 2px dashed #bc964a;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.invitation-success-box h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #bc964a;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.invitation-success-box p {
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.btn-download-again {
+  background-color: #bc964a;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 15px rgba(188, 150, 74, 0.3);
+}
+
+.btn-download-again:hover {
+  background-color: #a37f37;
+  transform: translateY(-2px);
+}
+
+#invitationCanvas {
+  display: none;
+}
+
+/* ==========================================
+   11. FOOTER
    ========================================== */
 footer {
   text-align: center;
@@ -535,7 +589,7 @@ footer {
 }
 
 /* ==========================================
-   11. MEDIA QUERIES RESPONSIVE (ACCUEIL)
+   12. MEDIA QUERIES RESPONSIVE (ACCUEIL)
    ========================================== */
 @media (max-width: 1024px) {
   .apropos-content {
@@ -599,7 +653,7 @@ footer {
 }
 
 /* ==========================================
-   12. STYLES SPÉCIFIQUES POUR LA GALERIE (Nouveau)
+   13. STYLES SPÉCIFIQUES POUR LA GALERIE (Nouveau)
    ========================================== */
 .galerie-body {
   background-color: #0c0c0c !important;
